@@ -1,4 +1,4 @@
-## Titre du projet
+# Titre du projet
 Projet tutoré S4 - Le but de ce projet est la réalisation en C++ d'un démonstrateur à tableaux analytiques pour la logique propositionnelle.
 
 ##But du projet
