@@ -17,12 +17,12 @@
  * classe d'un arbre composé de noeuds de propositions
  *
  * myRoot : racine de l'abre
- *
+ * myProposallist : liste des propositions
  */
 class Tree
 {
 private:
-    std::shared_ptr<Node> myRoot;
+    std::shared_ptr<Node> 				   myRoot;
     std::vector<std::shared_ptr<Proposal>> myProposalList;
 public:
 //---------------------------------------------------------------------------------------------------------

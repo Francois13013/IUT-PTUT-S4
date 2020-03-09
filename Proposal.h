@@ -34,13 +34,12 @@ public:
 // GETTERS / SETTERS
 //---------------------------------------------------------------------------------------------------------
     const std::string & getData();
-    const std::string & getNegation();
     void  setData(const std::string & data);
 //---------------------------------------------------------------------------------------------------------
 // METHODES
 //---------------------------------------------------------------------------------------------------------
     void simplify();
-
+    std::string  getNegation();
     // /!\ plus de pointeurs
     std::pair<Proposal,Proposal> transformInto2Proposal();
 

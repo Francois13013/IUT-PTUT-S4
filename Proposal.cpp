@@ -12,24 +12,22 @@ using namespace std;
 //---------------------------------------------------------------------------------------------------------
 Proposal::Proposal(const string & proposal) :myData(proposal) {}
 
-
-
 //---------------------------------------------------------------------------------------------------------
 //  GETTERS / SETTERS
 //---------------------------------------------------------------------------------------------------------
 const string & Proposal::getData()                  {return myData;}
 void Proposal::setData(const string & Proposal)     {myData = Proposal;}
 
-const string & Proposal::getNegation()
+string  Proposal::getNegation()
 {
     if(this->getData().back() == '-')
     {
         return this->getData().substr(0,this->getData().size()-1);
     }
-    return (this->myData + "-");
+    return (myData + "-");
 }
 
-const vector<shared_ptr<Node>> & Proposal::getProposalList() {}
+//const vector<shared_ptr<Node>> & Proposal::getProposalList() {}
 
 //---------------------------------------------------------------------------------------------------------
 // METHODES
@@ -39,17 +37,17 @@ void Proposal::simplify()
 
 
     //############## SIMPLIFIER LES > #############
-    unsigned long i = this->myData.size();
+    unsigned long i = myData.size();
     do
     {
         --i;
-        if(this->myData[i] == '>')
+        if(myData[i] == '>')
         {
-            this->myData[i] = '-';
-            this->myData.insert(i+1,"|");
+            myData[i] = '-';
+            myData.insert(i+1,"|");
             ++i;
         }
-        else if(this->myData[i] == '=')
+        else if(myData[i] == '=')
         {
             string expression1;
             string expression2;
@@ -57,46 +55,46 @@ void Proposal::simplify()
             unsigned indice = i-1;
             while(cpt != 0)
             {
-                expression1.insert(0,1,this->myData[indice]);
-                if(this->myData[indice] == '&' || this->myData[indice] == '|') cpt +=1;
-                else if(this->myData[indice] != '-') cpt -=1;
+                expression1.insert(0,1,myData[indice]);
+                if(myData[indice] == '&' || myData[indice] == '|') cpt +=1;
+                else if(myData[indice] != '-') cpt -=1;
                 --indice;
             }
             cpt = 1;
             while(cpt != 0)
             {
-                expression2.insert(0,1,this->myData[indice]);
-                if(this->myData[indice] == '&' || this->myData[indice] == '|') cpt +=1;
-                else if(this->myData[indice] != '-') cpt -=1;
+                expression2.insert(0,1,myData[indice]);
+                if(myData[indice] == '&' || myData[indice] == '|') cpt +=1;
+                else if(myData[indice] != '-') cpt -=1;
                 --indice;
             }
-            this->myData[i] = '&';
-            this->myData.insert(i+1,expression2 + "-" + expression1 + "-&|");
+            myData[i] = '&';
+            myData.insert(i+1,expression2 + "-" + expression1 + "-&|");
         }
     }while(i != 0);
  //############## SIMPLIFIER LES - et operateur #############
-    i = this->myData.size();
+    i = myData.size();
     do
     {
         --i;
-        if(this->myData[i] == '-' && (this->myData[i-1] == '&' || this->myData[i-1] == '|'))
+        if(myData[i] == '-' && (myData[i-1] == '&' || myData[i-1] == '|'))
         {
-            this->myData.erase(i,1);
-            if(this->myData[i-1] == '|') this->myData[i-1] = '&';
-            else this->myData[i-1] = '|';
+            myData.erase(i,1);
+            if(myData[i-1] == '|') myData[i-1] = '&';
+            else myData[i-1] = '|';
             int cpt = 2;
             unsigned indice = i-2;
             while(cpt != 0)
             {
-                if(this->myData[indice] == '&' || this->myData[indice] == '|')
+                if(this->myData[indice] == '&' ||this->myData[indice] == '|')
                 {
-                    if(this->myData[indice] == '|') this->myData[indice] = '&';
-                    else this->myData[indice] = '|';
+                    if(this->myData[indice] == '|') myData[indice] = '&';
+                    else myData[indice] = '|';
                     cpt += 1;
                 }
-                else if(this->myData[indice] != '-')
+                else if(myData[indice] != '-')
                 {
-                    this->myData.insert(indice+1,"-");
+                    myData.insert(indice+1,"-");
                     ++i;
                     --cpt;
                 }
@@ -106,13 +104,13 @@ void Proposal::simplify()
     }while(i != 0);
     //############## SIMPLIFIER LES -- operateur #############
     i = 0;
-    while(i < this->myData.size())
+    while(i < myData.size())
     {
 
-        if(this->myData[i] == '-' && this->myData[i+1] == '-')
+        if(myData[i] == '-' && myData[i+1] == '-')
         {
-            this->myData.erase(i,1);
-            this->myData.erase(i,1);
+            myData.erase(i,1);
+            myData.erase(i,1);
             --i;
         }const std::string & getData();
         const std::string & getNegation();
@@ -139,17 +137,17 @@ pair<Proposal,Proposal> Proposal::transformInto2Proposal()
     unsigned long long indice = this->getData().size()-2;
     while(cpt != 0)
     {
-        expression1.insert(0,1,this->myData[indice]);
-        if(this->myData[indice] == '&' || this->myData[indice] == '|') cpt +=1;
-        else if(this->myData[indice] != '-') cpt -=1;
+        expression1.insert(0,1,myData[indice]);
+        if(myData[indice] == '&' || myData[indice] == '|') cpt +=1;
+        else if(myData[indice] != '-') cpt -=1;
         --indice;
     }
     cpt = 1;
     while(cpt != 0)
     {
-        expression2.insert(0,1,this->myData[indice]);
-        if(this->myData[indice] == '&' || this->myData[indice] == '|') cpt +=1;
-        else if(this->myData[indice] != '-') cpt -=1;
+        expression2.insert(0,1,myData[indice]);
+        if(myData[indice] == '&' || myData[indice] == '|') cpt +=1;
+        else if(myData[indice] != '-') cpt -=1;
         --indice;
     }
 
