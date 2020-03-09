@@ -18,9 +18,9 @@ Tree::Tree()
              break;
          }
          myProposalList.push_back(shared_ptr<Proposal>(new Proposal(equation)));
+
          ++ cpt;
     }
-
     //La dernière valeur rentré est celle qu'on cherche à démontrer
     //Pour faire une démonstration par l'absurde on transforme cette valeur par sa négation
     shared_ptr<Proposal> tmp = myProposalList.back();
@@ -49,10 +49,10 @@ const std::vector<std::shared_ptr<Proposal>> & Tree::getProposalList() {return m
 
 bool Tree::solve()
 {
-    return this->myRoot->solve();
+    return myRoot->solve();
 }//solve()
 
 void Tree::display()
 {
-    //TODO
+    myRoot->nodeDisplay();
 }
