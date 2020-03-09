@@ -25,7 +25,7 @@ void Proposition::simplify()
 {
 
 
-    //############## SIMPLIFIER LES > #############
+    //############## SIMPLIFIER LES >  et les =  #############
     unsigned long i = this->proposition.size();
     do
     {

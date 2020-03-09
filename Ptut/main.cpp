@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
   Tree arbre = Tree();
-//  arbre.display();
+  arbre.display();
   if(arbre.solve()) cout << "La resolution est verifiee" << endl;
   else              cout << "La resolution n'est pas verifiee" << endl;
 

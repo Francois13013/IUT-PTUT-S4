@@ -96,6 +96,7 @@ bool Node::solve()
             result = son->solve();
             if(result) ++cptSolve;
         }
+        cout << cptSolve << " sur " << this->getSons().size() << "    " << this->getSons()[0]->getProposition()->getProposition() << endl;
         if(cptSolve == this->getSons().size()) return true;
     }
     return false;
