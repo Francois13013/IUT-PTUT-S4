@@ -63,7 +63,7 @@ public:
 
     bool solve();
 
-    void display();
+    void nodeDisplay();
 };
 
 #endif // NODE_H

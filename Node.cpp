@@ -76,9 +76,9 @@ bool Node::checkNegationInFathers(const std::string & test)
     string 	 data	  = proposal.getData();
 
     if(data == test) return true;
-    if(this->myFather != nullptr)
+    if(myFather != nullptr)
     {
-        bool a = this->myFather->checkNegationInFathers(test);
+        bool a = myFather->checkNegationInFathers(test);
         return a;
     }
     return false;
@@ -114,9 +114,9 @@ bool Node::solve()
                  this->addSonToLastBeta(newProposals.first, newProposals.second, s);
             }
         }
-        else if (this->myFather != nullptr)
+        else if (myFather != nullptr)
         {
-            if(this->myFather->checkNegationInFathers(proposal.getNegation()))
+            if(myFather->checkNegationInFathers(proposal.getNegation()))
                 return true;
         }
 
@@ -135,4 +135,11 @@ bool Node::solve()
         return false;
 }//solve()
 
-void display();
+void Node::nodeDisplay()
+{
+    for (shared_ptr<Node> ptr : mySons)
+    {
+        Proposal tmp = ptr->getProposal();
+        cout << "\t" << tmp.getData();
+    }
+}//display()
