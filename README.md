@@ -1,7 +1,7 @@
 # Titre du projet
 Projet tutoré S4 - Le but de ce projet est la réalisation en C++ d'un démonstrateur à tableaux analytiques pour la logique propositionnelle.
 
-##But du projet
+## But du projet
 Le programme conçu devra pouvoir prendre en entrée n'importe quelle formule propositionnelle construite à partir des connecteurs classiques de négation (~), conjonction (&), disjonction (|), implication (->) et équivalence (<->), et vérifier à partir d'une preuve par réfutation si celle-ci est un théorème.
 
 ## Motivation
