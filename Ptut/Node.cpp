@@ -140,6 +140,6 @@ void Node::nodeDisplay()
     for (shared_ptr<Node> ptr : mySons)
     {
         Proposal tmp = ptr->getProposal();
-        cout << "\t" << tmp.getData();
+        cout << "\t" << tmp.getData() << endl;
     }
 }//display()

@@ -1,15 +1,13 @@
 #include <iostream>
 #include <string>
 #include "Tree.h"
-#include "infix2postfix.cpp"
+
 using namespace std;
 
 
 int main()
 {
   Tree arbre = Tree();
-
-
 
   if(arbre.solve())
       cout << "La resolution est verifiee" << endl;
@@ -19,3 +17,6 @@ int main()
   arbre.display();
   return 0;
 }
+
+
+

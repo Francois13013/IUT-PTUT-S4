@@ -12,6 +12,8 @@
 //  INCLUDES
 //--------------------------------------------------------------------------------------------------------
 #include "Node.h"
+
+
 /**
  * Classe Tree
  * classe d'un arbre composé de noeuds de propositions

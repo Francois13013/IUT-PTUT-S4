@@ -1,22 +1,36 @@
 #include <iostream>
 #include "Tree.h"
 
+#include <limits>
+
+#include "infix2postfix.cpp"
+
 using namespace std;
 
 Tree::Tree()
 {
+    cout << "Rentrez le nombre de proposition que vous voulez les unes apres les autres" << endl
+         << "la proposition a demontrer doit commencer par ':' " << endl << endl;
+
     unsigned cpt = 1;
     string equation;
+
     while(true)
     {
          cout << "Proposition " << cpt << " : ";
          getline(cin, equation);
+
          if(equation[0] == ':')
          {
              equation.erase(0,1);
+             equation = changeCin(equation);
+
              myProposalList.push_back(shared_ptr<Proposal>(new Proposal(equation)));
              break;
          }
+         equation = changeCin(equation);
+         cout << equation << endl;
+
          myProposalList.push_back(shared_ptr<Proposal>(new Proposal(equation)));
 
          ++ cpt;
