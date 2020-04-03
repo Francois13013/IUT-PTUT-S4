@@ -10,7 +10,7 @@ Projet tutoré de deuxième année IUT informatique AMU.
 
 ## Screenshots
 
-![Screenshot](https://prnt.sc/rsdi54)
+![Screenshot](https://i.ibb.co/893p9w9/download.png)
 
 ## Langage
 - C++
